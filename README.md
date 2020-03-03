@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Netlify 
+# Netlify 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2c61fcf3-f507-4c4f-95df-2e2650ce533d/deploy-status)](https://app.netlify.com/sites/slowfood-team3/deploys)
 
 ## Semaphore 
