@@ -4,7 +4,7 @@ describe("User can log in", () => {
       cy.visit("/");
     });
   
-    it("successfully", () => {
+    it("user can login successfully", () => {
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
@@ -22,7 +22,7 @@ describe("User can log in", () => {
       cy.get("#message").should("contain", "Hi user@mail.com");
     });
   
-    it("with invalid credentials", () => {
+    it("user can not login with invalid credentials", () => {
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",

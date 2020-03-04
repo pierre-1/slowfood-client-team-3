@@ -9,7 +9,6 @@ class App extends Component {
     message: ""
   };
 
- 
   onLogin = async e => {
     e.preventDefault();
     const response = await authenticate(
