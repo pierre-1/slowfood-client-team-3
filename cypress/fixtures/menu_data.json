@@ -1,0 +1,19 @@
+{
+  "products": [
+      {
+          "name": "Gravad lax",
+          "description": "fish",
+          "price": 85
+      },
+      {
+          "name": "Sill",
+          "description": "fish",
+          "price": 60
+      },
+      {
+          "name": "Varmrökt lax",
+          "description": "fish",
+          "price": 100
+      }
+  ]
+}
