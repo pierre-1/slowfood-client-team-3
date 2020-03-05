@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Semaphore 
+[![Build Status](https://semaphoreci.com/api/v1/pgaunitz/slowfood-client-team-3-2/branches/development/badge.svg)](https://semaphoreci.com/pgaunitz/slowfood-client-team-3-2) 
+
+## Coveralls
+[![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/slowfood-client-team-3/badge.svg?branch=development)](https://coveralls.io/github/CraftAcademy/slowfood-client-team-3?branch=development)
+
 ## Available Scripts
 
 In the project directory, you can run:
