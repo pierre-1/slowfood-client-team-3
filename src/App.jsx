@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { authenticate } from "./modules/auth";
 import LoginForm from "./components/LoginForm";
+import DisplayProductData from "./components/DisplayProductData";
 
 class App extends Component {
   state = {
@@ -49,9 +50,16 @@ class App extends Component {
             Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
           </p>
         );
+        break;
     }
 
-    return <>{renderLogin}</>;
+    return (
+    <>
+    <h1>Slowfood</h1>
+    {renderLogin}
+    <DisplayProductData/>
+    </>
+    );
   }
 }
 

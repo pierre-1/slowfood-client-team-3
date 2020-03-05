@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getData } from '..modules/productData';
+import { getData } from '../modules/products';
 
 class DisplayProductData extends Component {
     state = {
@@ -45,4 +45,4 @@ class DisplayProductData extends Component {
   }
 };
 
-export default {DisplayProductData};
+export default DisplayProductData;

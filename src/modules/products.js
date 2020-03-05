@@ -8,7 +8,7 @@ const getData = async () => {
         'Content-type': 'application/json',
         Accept: 'application/json'
     };
-    const response = await axios.get('/performance_data', {
+    const response = await axios.get('/product', {
         headers: headers
     });
 
