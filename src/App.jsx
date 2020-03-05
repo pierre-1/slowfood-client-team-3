@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import DisplayProductData from '.components/DisplayProductData';
 
 const App = () => {
   return (
     <>
       <h1 id="menu-header">Menu</h1>
-      <div id="index">products</div>
+      <div id="index"><DisplayProductData/></div>
     </>
   );
 }
