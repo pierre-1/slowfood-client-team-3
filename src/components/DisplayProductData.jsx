@@ -36,11 +36,6 @@ class DisplayProductData extends Component {
       <div>
           {dataIndex}
       </div>
-  
-    // <>
-    //   <h1 id="menu-header">Menu</h1>
-    //   <div id="index">products</div>
-    // </>
     )
   }
 };
