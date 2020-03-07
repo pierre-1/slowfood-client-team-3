@@ -11,32 +11,30 @@ class App extends Component {
     message: ""
   };
 
-  onLogin = async e => {
+  onSignIn = async e => {
+    let response;
     e.preventDefault();
-    const response = await authenticate(
-      e.target.email.value,
-      e.target.password.value
-    );
+    if (e.target.id === "signup") {
+      response = await register(
+        e.target.name.value,
+        e.target.email.value,
+        e.target.password.value,
+        e.target.confirm_password.value
+      );
+    } else {
+      response = await authenticate(
+        e.target.email.value,
+        e.target.password.value
+      );
+    }
+
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
-      this.setState({ message: response.message, renderLoginForm: false });
-    }
-  };
-
-  onRegister = async e => {
-    e.preventDefault();
-    const response = await register(
-      e.target.email.value,
-      e.target.password.value,
-      e.target.password_confirmation.value
-    );
-    if (response.registred) {
-      this.setState({ registred: true });
-    } else {
       this.setState({
-        message: response.message,
-        renderRegistrationForm: false
+        message: response.message[0],
+        renderRegistrationForm: false,
+        renderLoginForm: false
       });
     }
   };
@@ -55,10 +53,10 @@ class App extends Component {
 
     switch (true) {
       case renderRegistrationForm && !authenticated:
-        renderRegister = <RegistrationForm submitFormHandler={this.onRegister} />;
+        renderRegister = <RegistrationForm submitFormHandler={this.onSignIn} />;
         break;
       case renderLoginForm && !authenticated:
-        renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
+        renderLogin = <LoginForm submitFormHandler={this.onSignIn} />;
         break;
       case !authenticated:
         renderSignIn = (
@@ -85,6 +83,7 @@ class App extends Component {
             Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
           </p>
         );
+        break;
     }
 
     return (
