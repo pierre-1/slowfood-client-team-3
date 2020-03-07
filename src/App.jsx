@@ -55,10 +55,10 @@ class App extends Component {
 
     switch (true) {
       case renderRegistrationForm && !authenticated:
-        renderRegister = <RegistrationForm submitFormHandler={this.onSignIn} />;
+        renderRegister = <RegistrationForm submitFormHandler={this.onRegister} />;
         break;
       case renderLoginForm && !authenticated:
-        renderLogin = <LoginForm submitFormHandler={this.onSignIn} />;
+        renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
         break;
       case !authenticated:
         renderSignIn = (
@@ -80,7 +80,7 @@ class App extends Component {
         );
         break;
       case authenticated:
-        renderLogin = (
+        renderResponse= (
           <p id="message">
             Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
           </p>
