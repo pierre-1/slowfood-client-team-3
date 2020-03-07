@@ -31,8 +31,8 @@ class App extends Component {
       e.target.password.value,
       e.target.password_confirmation.value
     );
-    if (response.authenticated) {
-      this.setState({ authenticated: true });
+    if (response.registred) {
+      this.setState({ registred: true });
     } else {
       this.setState({
         message: response.message,
@@ -55,7 +55,7 @@ class App extends Component {
 
     switch (true) {
       case renderRegistrationForm && !authenticated:
-        renderRegister = <RegistrationForm submitFormHandler={this.onLogin} />;
+        renderRegister = <RegistrationForm submitFormHandler={this.onRegister} />;
         break;
       case renderLoginForm && !authenticated:
         renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
