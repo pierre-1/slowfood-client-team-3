@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const authenticate = async (email, password) => {
   try {
     const response = await axios.post("/auth/sign_in", {
@@ -8,7 +9,21 @@ const authenticate = async (email, password) => {
     await storeAuthCredentials(response);
     return { authenticated: true };
   } catch (error) {
-    return { authenticated: false, message: error.response.data.errors[0] };
+    return { authenticated: false, message: error.response.data.errors };
+  }
+};
+const register = async (email, password, confirm_password) => {
+  try {
+    const response = await axios.post("auth/", {
+      email: email,
+      password: password,
+      confirm_password: confirm_password
+    });
+
+    await storeAuthCredentials(response);
+    return { authenticated: true };
+  } catch (error) {
+    return { authenticated: false, message: error.response.data.errors };
   }
 };
 const storeAuthCredentials = ({ headers }) => {
@@ -21,4 +36,4 @@ const storeAuthCredentials = ({ headers }) => {
   };
   sessionStorage.setItem("credentials", JSON.stringify(credentials));
 };
-export { authenticate };
+export { authenticate, register };
