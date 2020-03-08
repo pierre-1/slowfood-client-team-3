@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { authenticate, register } from "./modules/auth";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
-
+import DisplayProductData from "./components/DisplayProductData"
 class App extends Component {
   state = {
     renderLoginForm: false,
