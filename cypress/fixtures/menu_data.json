@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Gravad lax",
+      "description": "A new take on a Swedish staple for curious tastebuds",
+      "price": 85
+    },
+    {
+      "id": 2,
+      "name": "Sill",
+      "description": "Beautiful herring from the best coast",
+      "price": 60
+    },
+    {
+      "id": 3,
+      "name": "Varmrökt lax",
+      "description": "Smokey goodness",
+      "price": 100
+    }
+  ]
+}
