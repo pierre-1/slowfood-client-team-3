@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { authenticate, register } from "./modules/auth";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
+import DisplayProductData from "./components/DisplayProductData";
 
 class App extends Component {
   state = {
@@ -78,7 +79,7 @@ class App extends Component {
         );
         break;
       case authenticated:
-        renderResponse= (
+        renderResponse = (
           <p id="message">
             Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
           </p>
@@ -92,7 +93,7 @@ class App extends Component {
         {renderRegister}
         {renderResponse}
         {renderSignIn}
-        <DisplayProductData/>
+        <DisplayProductData />
       </>
     );
   }

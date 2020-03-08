@@ -1,16 +1,41 @@
-describe("User attempts to view menu", () => {
-  before(function() {
-    cy.server();
-    cy.route({
-      method: "GET",
-      url: "http://localhost:3000/api/v1/",
-      response: "fixture:menu_data.json"
-    });
+describe('user views menus', () => {
 
-    cy.visit("/");
-  });
+	beforeEach(() => {
+		cy.visit("http://localhost:3001")
+	});
 
-  it("sucessfully", () => {
-    cy.get("#index").contains("products");
-  });
-});
+	describe('when there are products', () => {
+		before(() => {
+			cy.server();
+			cy.route({
+				method: 'GET',
+				url: 'http://localhost:3000/api/products',
+				response: 'fixture:menu_data.json'
+			})
+		})
+
+		it('successfully', () => {
+			cy.get('#index').within(() => {
+				cy.contains('Gravad lax')
+				cy.contains('Sill')
+				cy.contains('Varmrökt lax')
+			})
+		})
+	});
+
+	describe('when the are NO products', () => {
+
+		before(() => {
+			cy.server();
+			cy.route({
+				method: 'GET',
+				url: 'http://localhost:3000/api/products',
+				response: []
+			})
+		})
+
+		it('unsuccessfully', () => {
+			cy.get('#index').should('not.exist')
+		})
+	});
+})
