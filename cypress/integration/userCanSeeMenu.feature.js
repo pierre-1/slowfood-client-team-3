@@ -1,39 +1,41 @@
-describe("user views menus", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3001");
-  });
+describe('user views menus', () => {
 
-  describe("User attempts to view menu", () => {
-    before(() => {
-      cy.server();
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/",
-        response: "fixture:menu_data.json"
-      });
-    });
+	beforeEach(() => {
+		cy.visit("http://localhost:3001")
+	});
 
-    it("sucessfully", () => {
-      cy.get("#index").within(() => {
-        cy.contains("Gravad lax");
-        cy.contains("Sill");
-        cy.contains("Varmrökt lax");
-      });
-    });
-  });
+	describe('when there are products', () => {
+		before(() => {
+			cy.server();
+			cy.route({
+				method: 'GET',
+				url: 'http://localhost:3000/api/products',
+				response: 'fixture:menu_data.json'
+			})
+		})
 
-  describe("when the are NO products", () => {
-    before(() => {
-      cy.server();
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/products",
-        response: []
-      });
-    });
+		it('successfully', () => {
+			cy.get('#index').within(() => {
+				cy.contains('Gravad lax')
+				cy.contains('Sill')
+				cy.contains('Varmrökt lax')
+			})
+		})
+	});
 
-    it("unsuccessfully", () => {
-      cy.get("#index").should("not.exist");
-    });
-  });
-});
+	describe('when the are NO products', () => {
+
+		before(() => {
+			cy.server();
+			cy.route({
+				method: 'GET',
+				url: 'http://localhost:3000/api/products',
+				response: []
+			})
+		})
+
+		it('unsuccessfully', () => {
+			cy.get('#index').should('not.exist')
+		})
+	});
+})
