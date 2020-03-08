@@ -19,8 +19,7 @@ class DisplayProductData extends Component {
   async addToOrder(event) {
     let id = event.target.parentElement.dataset.id;
     let result = await axios.post("http://localhost:3000/api/orders", {
-      params: { id: id }
-    });
+      params: { id: id } });
     this.setState({ message: { id: id, message: result.data.message } });
   }
 
@@ -47,7 +46,7 @@ class DisplayProductData extends Component {
                   Add to order
                 </button>
                 {parseInt(this.state.message.id) === item.id && (
-                  <p class='message'>{this.state.message.message}</p>
+                  <p>{this.state.message.message}</p>
                 )}
               </div>
             );

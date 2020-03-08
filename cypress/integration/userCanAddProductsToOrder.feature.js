@@ -23,7 +23,7 @@ describe('User can add products to his/her order', () => {
             cy.get('button').contains('Add to order').click()
         })
         cy.wait(500)
-        cy.get('#product-1').within(()=>{
+        cy.get('#product-2').within(()=>{
             cy.get('p .message').should('contain', "The product has been added to your order")
         })
     });
